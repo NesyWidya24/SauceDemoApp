@@ -63,6 +63,9 @@ public class login extends env {
         webDriverWait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"header_container\"]/div[2]/span"))
         );
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(srcFile, new File("src/test/resources/screenshot/loginFailed.png"));
         driver.quit();
     }
 
